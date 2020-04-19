@@ -18,6 +18,8 @@
         "airbnb-base"
     ],
     "globals": {
+        "UserForm": "writable",
+        "ApiConnector": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
