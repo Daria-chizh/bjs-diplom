@@ -3,6 +3,3 @@
 
 node_modules
 package-lock.json
-
-# local user database
-db.json
