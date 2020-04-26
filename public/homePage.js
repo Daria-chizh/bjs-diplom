@@ -57,3 +57,18 @@ const addMoneyCallback = (data) => {
 };
 
 moneyManager.addMoneyCallback = addMoneyCallback;
+
+const convertMoneyApiResponse = (res) => {
+  if (res.success) {
+    ProfileWidget.showProfile(res.data);
+    moneyManager.setMessage(false, 'Валюта сконвентирована');
+  } else {
+    moneyManager.setMessage(true, res.data);
+  }
+};
+
+const conversionMoneyCallback = (data) => {
+  ApiConnector.convertMoney(data, convertMoneyApiResponse);
+};
+
+moneyManager.conversionMoneyCallback = conversionMoneyCallback;
