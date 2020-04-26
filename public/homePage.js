@@ -12,3 +12,13 @@ const logoutCallback = () => {
 };
 
 logoutButton.action = logoutCallback;
+
+// Получение информации о пользователе
+
+const currentApiResponse = (res) => {
+  if (res.success) {
+    ProfileWidget.showProfile(res.data);
+  }
+};
+
+ApiConnector.current(currentApiResponse);

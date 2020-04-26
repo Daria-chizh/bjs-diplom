@@ -21,6 +21,7 @@
         "UserForm": "writable",
         "LogoutButton": "writable",
         "ApiConnector": "writable",
+        "ProfileWidget": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
