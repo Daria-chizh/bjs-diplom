@@ -104,7 +104,7 @@ const getFavoritesApiResponse = (res) => {
 ApiConnector.getFavorites(getFavoritesApiResponse);
 
 // добавления пользователя в список избранных
-const addUserToFavoritesApiConnector = (res) => {
+const addUserToFavoritesApiResponse = (res) => {
   if (res.success) {
     favoritesWidget.clearTable();
     favoritesWidget.fillTable(res.data);
@@ -116,7 +116,25 @@ const addUserToFavoritesApiConnector = (res) => {
 };
 
 const addUserCallback = (data) => {
-  ApiConnector.addUserToFavorites(data, addUserToFavoritesApiConnector);
+  ApiConnector.addUserToFavorites(data, addUserToFavoritesApiResponse);
 };
 
 favoritesWidget.addUserCallback = addUserCallback;
+
+// удаление пользователя из избранного
+const removeUserCallbackApiResponse = (res) => {
+  if (res.success) {
+    favoritesWidget.clearTable();
+    favoritesWidget.fillTable(res.data);
+    moneyManager.updateUsersList(res.data);
+    favoritesWidget.setMessage(false, 'Пользователь успешно удалён');
+  } else {
+    favoritesWidget.setMessage(true, res.data);
+  }
+};
+
+const removeUserCallback = (data) => {
+  ApiConnector.removeUserFromFavorites(data, removeUserCallbackApiResponse);
+};
+
+favoritesWidget.removeUserCallback = removeUserCallback;
