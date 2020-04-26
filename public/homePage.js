@@ -58,6 +58,7 @@ const addMoneyCallback = (data) => {
 
 moneyManager.addMoneyCallback = addMoneyCallback;
 
+// конвертирование валюты
 const convertMoneyApiResponse = (res) => {
   if (res.success) {
     ProfileWidget.showProfile(res.data);
@@ -72,3 +73,19 @@ const conversionMoneyCallback = (data) => {
 };
 
 moneyManager.conversionMoneyCallback = conversionMoneyCallback;
+
+// перевод валюты
+const transferMoneyApiResponse = (res) => {
+  if (res.success) {
+    ProfileWidget.showProfile(res.data);
+    moneyManager.setMessage(false, 'Валюта переведена');
+  } else {
+    moneyManager.setMessage(true, res.data);
+  }
+};
+
+const sendMoneyCallback = (data) => {
+  ApiConnector.transferMoney(data, transferMoneyApiResponse);
+};
+
+moneyManager.sendMoneyCallback = sendMoneyCallback;
