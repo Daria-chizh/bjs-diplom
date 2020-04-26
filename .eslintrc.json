@@ -19,6 +19,7 @@
     ],
     "globals": {
         "UserForm": "writable",
+        "LogoutButton": "writable",
         "ApiConnector": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
