@@ -24,6 +24,7 @@
         "ProfileWidget": "writable",
         "RatesBoard": "writable",
         "MoneyManager": "writable",
+        "FavoritesWidget": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },

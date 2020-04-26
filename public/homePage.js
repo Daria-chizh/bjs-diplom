@@ -89,3 +89,16 @@ const sendMoneyCallback = (data) => {
 };
 
 moneyManager.sendMoneyCallback = sendMoneyCallback;
+
+// Работа с избранным
+const favoritesWidget = new FavoritesWidget();
+
+const getFavoritesApiResponse = (res) => {
+  if (res.success) {
+    favoritesWidget.clearTable();
+    favoritesWidget.fillTable(res.data);
+    moneyManager.updateUsersList(res.data);
+  }
+};
+
+ApiConnector.getFavorites(getFavoritesApiResponse);
