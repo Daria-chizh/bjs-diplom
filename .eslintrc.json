@@ -22,6 +22,7 @@
         "LogoutButton": "writable",
         "ApiConnector": "writable",
         "ProfileWidget": "writable",
+        "RatesBoard": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
