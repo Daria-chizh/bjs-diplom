@@ -102,3 +102,21 @@ const getFavoritesApiResponse = (res) => {
 };
 
 ApiConnector.getFavorites(getFavoritesApiResponse);
+
+// добавления пользователя в список избранных
+const addUserToFavoritesApiConnector = (res) => {
+  if (res.success) {
+    favoritesWidget.clearTable();
+    favoritesWidget.fillTable(res.data);
+    moneyManager.updateUsersList(res.data);
+    favoritesWidget.setMessage(false, 'Пользователь успешно добавлен');
+  } else {
+    favoritesWidget.setMessage(true, res.data);
+  }
+};
+
+const addUserCallback = (data) => {
+  ApiConnector.addUserToFavorites(data, addUserToFavoritesApiConnector);
+};
+
+favoritesWidget.addUserCallback = addUserCallback;
