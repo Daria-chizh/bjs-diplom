@@ -39,3 +39,21 @@ const getRates = () => {
 getRates();
 
 setInterval(getRates, 60 * 1000);
+
+// Операции с деньгами
+const moneyManager = new MoneyManager();
+
+const addMoneyApiResponse = (res) => {
+  if (res.success) {
+    ProfileWidget.showProfile(res.data);
+    moneyManager.setMessage(false, 'Баланс пополнен');
+  } else {
+    moneyManager.setMessage(true, res.data);
+  }
+};
+
+const addMoneyCallback = (data) => {
+  ApiConnector.addMoney(data, addMoneyApiResponse);
+};
+
+moneyManager.addMoneyCallback = addMoneyCallback;

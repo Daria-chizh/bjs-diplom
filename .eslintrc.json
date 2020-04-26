@@ -23,6 +23,7 @@
         "ApiConnector": "writable",
         "ProfileWidget": "writable",
         "RatesBoard": "writable",
+        "MoneyManager": "writable",
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
